@@ -12,6 +12,7 @@ int roman_char_to_arabic(char* x){
 			return arabics[i];
 		}
 	}
+	return ERROR;
 }
 
 int roman_to_arabic(char* x) {
