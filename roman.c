@@ -17,10 +17,11 @@ int roman_char_to_arabic(char* x){
 
 int roman_to_arabic(char* x) {
 	int total = 0;
-	while(*x)
+	int size = sizeof(x);
+	int i;
+	for (i = size; i >= 0; --i)
 	{
-		total += roman_char_to_arabic(x);
-		x++;
+		total += roman_char_to_arabic(&x[i]);
 	}
 	return total;
 }
