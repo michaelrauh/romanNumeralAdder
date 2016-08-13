@@ -13,7 +13,10 @@ int roman_to_arabic(char* x) {
 	else if (*x == 'L'){
 		return 50;
 	}
-	else{
+	else if (*x == 'C'){
 		return 100;
+	}
+	else{
+		return 500;
 	}
 }
