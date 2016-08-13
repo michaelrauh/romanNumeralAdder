@@ -15,5 +15,11 @@ int roman_char_to_arabic(char* x){
 }
 
 int roman_to_arabic(char* x) {
-	return roman_char_to_arabic(x);
+	int total = 0;
+	while(*x)
+	{
+		total += roman_char_to_arabic(x);
+		x++;
+	}
+	return total;
 }
