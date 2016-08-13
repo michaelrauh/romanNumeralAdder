@@ -1,6 +1,6 @@
 #include "roman.h"
 
-int roman_to_arabic(char* x) {
+int roman_char_to_arabic(char* x){
 	if (*x == 'I'){
 		return 1;
 	}
@@ -22,4 +22,8 @@ int roman_to_arabic(char* x) {
 	else{
 		return 1000;
 	}
+}
+
+int roman_to_arabic(char* x) {
+	return roman_char_to_arabic(x);
 }
