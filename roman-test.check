@@ -7,3 +7,4 @@
   ck_assert_int_eq(roman_to_arabic("L"), 50);
   ck_assert_int_eq(roman_to_arabic("C"), 100);
   ck_assert_int_eq(roman_to_arabic("D"), 500);
+  ck_assert_int_eq(roman_to_arabic("M"), 1000);
