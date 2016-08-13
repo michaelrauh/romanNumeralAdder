@@ -9,5 +9,10 @@
   ck_assert_int_eq(roman_to_arabic("D"), 500);
   ck_assert_int_eq(roman_to_arabic("M"), 1000);
 
-#test romanToArabicAddingITest
+#test romanToArabicAddingTest
   ck_assert_int_eq(roman_to_arabic("II"), 2);
+  ck_assert_int_eq(roman_to_arabic("III"), 3);
+  ck_assert_int_eq(roman_to_arabic("VI"), 6);
+  ck_assert_int_eq(roman_to_arabic("VII"), 7);
+  ck_assert_int_eq(roman_to_arabic("XII"), 12);
+  ck_assert_int_eq(roman_to_arabic("MXI"), 1011);
