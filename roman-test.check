@@ -17,3 +17,6 @@
   ck_assert_int_eq(roman_to_arabic("VII"), 7);
   ck_assert_int_eq(roman_to_arabic("XII"), 12);
   ck_assert_int_eq(roman_to_arabic("MXI"), 1011);
+
+#test romanToArabicSubtractTest
+  ck_assert_int_eq(roman_to_arabic("IV"), 4);

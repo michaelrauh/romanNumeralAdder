@@ -19,9 +19,18 @@ int roman_to_arabic(char* x) {
 	int total = 0;
 	int size = sizeof(x);
 	int i;
+	int current_arabic = 0;
+	int previous_arabic = 0;
 	for (i = size; i >= 0; --i)
 	{
-		total += roman_char_to_arabic(&x[i]);
+		current_arabic = roman_char_to_arabic(&x[i]);
+		if (current_arabic < previous_arabic){
+			total -= current_arabic;
+		}
+		else{
+			total += current_arabic;
+		}
+		previous_arabic = current_arabic;
 	}
 	return total;
 }
