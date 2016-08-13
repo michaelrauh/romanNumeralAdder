@@ -7,7 +7,10 @@ int roman_to_arabic(char* x) {
 	else if (*x == 'V'){
 		return 5;
 	}
-	else {
+	else if (*x == 'X'){
 		return 10;
+	}
+	else{
+		return 50;
 	}
 }
