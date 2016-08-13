@@ -1,5 +1,10 @@
 #include "roman.h"
 
 int roman_to_arabic(char* x) {
-	return 1;
+	if (*x == 'I'){
+		return 1;
+	}
+	else{
+		return 5;
+	}
 }
