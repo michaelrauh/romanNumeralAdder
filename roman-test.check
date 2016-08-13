@@ -3,3 +3,4 @@
 #test romanToArabicBasicConversionTest
   ck_assert_int_eq(roman_to_arabic("I"), 1);
   ck_assert_int_eq(roman_to_arabic("V"), 5);
+  ck_assert_int_eq(roman_to_arabic("X"), 10);
