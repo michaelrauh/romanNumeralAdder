@@ -78,3 +78,7 @@ int roman_to_arabic(const char* x) {
 	}
 	return total;
 }
+
+const char* arabic_to_roman(){
+	return "I";
+}

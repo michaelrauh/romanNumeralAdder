@@ -70,3 +70,6 @@
 
 #test romanToArabicLongInvalidTest
     ck_assert_int_eq(roman_to_arabic("NI"), ERROR);
+
+#test arabicToRomanBasicConversionTest
+  ck_assert_str_eq(arabic_to_roman(1), "I");
