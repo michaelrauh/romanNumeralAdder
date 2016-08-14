@@ -1,5 +1,6 @@
 #include "roman.h"
 #include "string.h"
+#include "stdlib.h"
 
 int roman_char_to_arabic(const char x){
 	char numerals[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
@@ -79,20 +80,20 @@ int roman_to_arabic(const char* x) {
 	return total;
 }
 
-const char* arabic_to_roman(int x){
-	if (x == 1){
-		return "I";
-	}else if (x == 5){
-		return "V";
-	}else if (x == 10){
-		return "X";
-	}else if (x == 50){
-		return "L";
-	}else if (x == 100){
-		return "C";
-	}else if (x == 500){
-		return "D";
-	}else{
-		return "M";
+const char* arabic_to_roman_pattern(int x){
+	int arabics[] = {1, 5, 10, 50, 100, 500, 1000};
+	const char* numerals[] = {"I", "V", "X", "L", "C", "D", "M"};
+	int size = sizeof(arabics)/sizeof(arabics[0]);
+	int i;
+	for(i = 0;i < size; i++){
+		if (arabics[i] == x){
+			char *final = malloc (strlen (numerals[i]) + 1);
+			strcpy(final, numerals[i]);
+			return final;
+		}
 	}
+}
+
+const char* arabic_to_roman(int x){
+	return arabic_to_roman_pattern(x);
 }
