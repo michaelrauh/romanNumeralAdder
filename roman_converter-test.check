@@ -106,3 +106,4 @@
 #test addRomanNumeralsSimpleCase
   ck_assert_str_eq(add_roman("I", "I"), "II");
   ck_assert_str_eq(add_roman("I", "II"), "III");
+  ck_assert_str_eq(add_roman("XXX", "XXX"), "LX");
