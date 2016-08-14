@@ -111,3 +111,6 @@
 
 #test addRomanNumeralsOverflowCase
   ck_assert_str_eq(add_roman("MMM", "MMM"), INVALID);
+
+#test subtractRomanNumeralSimpleCase
+  ck_assert_str_eq(subtract_roman("II", "I"), "I");

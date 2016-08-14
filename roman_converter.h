@@ -7,3 +7,4 @@ int roman_to_arabic(const char* x);
 const char* arabic_to_max_roman_pattern(int x);
 const char* arabic_to_roman(int x);
 const char* add_roman(const char* x, const char* y);
+const char* subtract_roman(const char* x, const char* y);

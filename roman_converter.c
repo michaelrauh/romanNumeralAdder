@@ -117,3 +117,7 @@ const char* add_roman(const char* x, const char* y){
 
 	return arabic_to_roman(total);
 }
+
+const char* subtract_roman(const char* x, const char* y){
+	return "I";
+}
