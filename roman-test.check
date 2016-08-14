@@ -49,3 +49,10 @@
 #test romanToArabicTwoNextHighestValuesCTest
     ck_assert_int_eq(roman_to_arabic("CD"), 400);
     ck_assert_int_eq(roman_to_arabic("CM"), 900);
+
+#test romanToArabicNoSubtractRuleVTest
+  ck_assert_int_eq(roman_to_arabic("VX"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VL"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VC"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VD"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VM"), ERROR);
