@@ -45,9 +45,12 @@ int roman_to_arabic(const char* x) {
 	int previous_arabic = 0;
 	int repeat = 1;
 	int subtract = 0;
-	for (i = size; i >= 0; --i)
+	for (i = size -1; i >=0; --i)
 	{
 		current_arabic = roman_char_to_arabic(x[i]);
+		if (current_arabic == ERROR){
+			return ERROR;
+		}
 		if (current_arabic < previous_arabic){
 			if (invalid_subtract(current_arabic, previous_arabic)){
 				return ERROR;

@@ -67,3 +67,6 @@
 
 #test romanToArabicOneSubtractionTest
   ck_assert_int_eq(roman_to_arabic("XXC"), ERROR);
+
+#test romanToArabicLongInvalidTest
+    ck_assert_int_eq(roman_to_arabic("NI"), ERROR);
