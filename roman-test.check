@@ -26,3 +26,7 @@
   ck_assert_int_eq(roman_to_arabic("XXXX"), ERROR);
   ck_assert_int_eq(roman_to_arabic("CCCC"), ERROR);
   ck_assert_int_eq(roman_to_arabic("MMMM"), ERROR);
+
+#test romanToArabicRepeatTwoTest
+  ck_assert_int_eq(roman_to_arabic("VV"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VVV"), ERROR);

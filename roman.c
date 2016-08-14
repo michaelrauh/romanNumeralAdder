@@ -36,6 +36,9 @@ int roman_to_arabic(const char* x) {
 			if (repeat > 3){
 				return ERROR;
 			}
+			if (repeat > 1 && current_arabic == 5){
+				return ERROR;
+			}
 		}
 		else{
 			total += current_arabic;
