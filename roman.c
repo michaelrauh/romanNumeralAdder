@@ -26,7 +26,9 @@ int max_repeat(const int x){
 }
 
 int invalid_subtract(const int cur, const int prev){
-	return (cur == 1 && (prev == 50) || (prev == 100) || (prev == 500) || (prev == 1000));
+	if (cur == 1){
+		return !((prev == 5) || (prev == 10));
+	}
 }
 
 int roman_to_arabic(const char* x) {
