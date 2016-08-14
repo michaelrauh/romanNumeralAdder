@@ -90,7 +90,9 @@ const char* arabic_to_roman(int x){
 		return "L";
 	}else if (x == 100){
 		return "C";
-	}else{
+	}else if (x == 500){
 		return "D";
+	}else{
+		return "M";
 	}
 }
