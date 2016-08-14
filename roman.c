@@ -80,13 +80,13 @@ int roman_to_arabic(const char* x) {
 	return total;
 }
 
-const char* arabic_to_roman_pattern(int x){
-	int arabics[] = {1, 5, 10, 50, 100, 500, 1000};
-	const char* numerals[] = {"I", "V", "X", "L", "C", "D", "M"};
+const char* arabic_to_max_roman_pattern(int x){
+	int arabics[] = {1000, 500, 100, 50, 10, 5, 1};
+	const char* numerals[] = {"M", "D", "C", "L", "X", "V", "I"};
 	int size = sizeof(arabics)/sizeof(arabics[0]);
 	int i;
 	for(i = 0;i < size; i++){
-		if (arabics[i] == x){
+		if (arabics[i] <= x){
 			char *final = malloc (strlen (numerals[i]) + 1);
 			strcpy(final, numerals[i]);
 			return final;
@@ -95,5 +95,5 @@ const char* arabic_to_roman_pattern(int x){
 }
 
 const char* arabic_to_roman(int x){
-	return arabic_to_roman_pattern(x);
+	return arabic_to_max_roman_pattern(x);
 }
