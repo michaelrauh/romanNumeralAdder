@@ -36,3 +36,4 @@
 #test romanToArabicTwoNextHighestValuesTest
   ck_assert_int_eq(roman_to_arabic("IX"), 9);
   ck_assert_int_eq(roman_to_arabic("IL"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("IC"), ERROR);
