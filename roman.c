@@ -95,7 +95,7 @@ const char* arabic_to_max_roman_pattern(int x){
 }
 
 const char* arabic_to_roman(int x){
-	if (x >= 5000){
+	if (x >= 5000 || x < 1){
 		return INVALID;
 	}
 	char* final = malloc(sizeof(char) * 15);
