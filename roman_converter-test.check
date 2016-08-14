@@ -108,3 +108,6 @@
   ck_assert_str_eq(add_roman("I", "II"), "III");
   ck_assert_str_eq(add_roman("XXX", "XXX"), "LX");
   ck_assert_str_eq(add_roman("XXX", "XXIX"), "LIX");
+
+#test addRomanNumeralsOverflowCase
+  ck_assert_str_eq(add_roman("MMM", "MMM"), INVALID);
