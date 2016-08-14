@@ -45,3 +45,7 @@
   ck_assert_int_eq(roman_to_arabic("XC"), 90);
   ck_assert_int_eq(roman_to_arabic("XD"), ERROR);
   ck_assert_int_eq(roman_to_arabic("XM"), ERROR);
+
+#test romanToArabicTwoNextHighestValuesCTest
+    ck_assert_int_eq(roman_to_arabic("CD"), 400);
+    ck_assert_int_eq(roman_to_arabic("CM"), 900);

@@ -32,6 +32,9 @@ int invalid_subtract(const int cur, const int prev){
 	if (cur == 10){
 		return !((prev == 50) || (prev == 100));
 	}
+	if (cur == 100){
+		return !((prev == 500) || (prev == 1000));
+	}
 }
 
 int roman_to_arabic(const char* x) {
