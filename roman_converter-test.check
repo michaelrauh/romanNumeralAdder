@@ -102,3 +102,6 @@
 #test arabicToRomanOutOfBoundsCaseTest
   ck_assert_str_eq(arabic_to_roman(5000), INVALID);
   ck_assert_str_eq(arabic_to_roman(-1), INVALID);
+
+#test addRomanNumeralsSimpleCase
+  ck_assert_str_eq(add_roman("I", "I"), "II");
