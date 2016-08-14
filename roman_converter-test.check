@@ -118,3 +118,7 @@
 
 #test subtractRomanNumeralUnderflowCase
   ck_assert_str_eq(subtract_roman("I", "II"), INVALID);
+
+#test addBadSymbolsCase
+  ck_assert_str_eq(add_roman("I", "N"), INVALID);
+  ck_assert_str_eq(add_roman("N", "I"), INVALID);
