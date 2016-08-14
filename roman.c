@@ -25,6 +25,10 @@ int max_repeat(const int x){
 	}
 }
 
+int invalid_subtract(const int cur, const int prev){
+	return (cur == 1 && (prev == 50) || (prev == 100) || (prev == 500) || (prev == 1000));
+}
+
 int roman_to_arabic(const char* x) {
 	int total = 0;
 	int size = strlen(x);
@@ -36,7 +40,7 @@ int roman_to_arabic(const char* x) {
 	{
 		current_arabic = roman_char_to_arabic(x[i]);
 		if (current_arabic < previous_arabic){
-			if (current_arabic == 1 && (previous_arabic == 50) || (previous_arabic == 100) || (previous_arabic == 500) || (previous_arabic == 1000)){
+			if (invalid_subtract(current_arabic, previous_arabic)){
 				return ERROR;
 			}
 			total -= current_arabic;
