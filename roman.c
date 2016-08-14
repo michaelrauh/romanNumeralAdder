@@ -1,4 +1,5 @@
 #include "roman.h"
+#include "string.h"
 
 int roman_char_to_arabic(char* x){
 	char numerals[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
@@ -17,18 +18,28 @@ int roman_char_to_arabic(char* x){
 
 int roman_to_arabic(char* x) {
 	int total = 0;
-	int size = sizeof(x);
+	int size = strlen(x);
 	int i;
 	int current_arabic = 0;
 	int previous_arabic = 0;
+	int repeat = 1;
 	for (i = size; i >= 0; --i)
 	{
 		current_arabic = roman_char_to_arabic(&x[i]);
 		if (current_arabic < previous_arabic){
 			total -= current_arabic;
+			repeat = 1;
+		}
+		else if(current_arabic == previous_arabic){
+			total += current_arabic;
+			repeat++;
+			if (repeat > 3){
+				return ERROR;
+			}
 		}
 		else{
 			total += current_arabic;
+			repeat = 1;
 		}
 		previous_arabic = current_arabic;
 	}
