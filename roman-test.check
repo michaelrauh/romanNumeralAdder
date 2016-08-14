@@ -87,3 +87,6 @@
   ck_assert_str_eq(arabic_to_roman(20), "XX");
   ck_assert_str_eq(arabic_to_roman(21), "XXI");
   ck_assert_str_eq(arabic_to_roman(1116), "MCXVI");
+
+#test arabicToRomanSimpleSubtractCaseTest
+  ck_assert_str_eq(arabic_to_roman(900), "CM");
