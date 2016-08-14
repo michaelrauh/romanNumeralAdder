@@ -114,3 +114,4 @@
 
 #test subtractRomanNumeralSimpleCase
   ck_assert_str_eq(subtract_roman("II", "I"), "I");
+  ck_assert_str_eq(subtract_roman("MCXVI", "XX"), "MXCVI");
