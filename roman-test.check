@@ -74,3 +74,4 @@
 #test arabicToRomanBasicConversionTest
   ck_assert_str_eq(arabic_to_roman(1), "I");
   ck_assert_str_eq(arabic_to_roman(5), "V");
+  ck_assert_str_eq(arabic_to_roman(10), "X");

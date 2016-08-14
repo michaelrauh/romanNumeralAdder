@@ -82,7 +82,9 @@ int roman_to_arabic(const char* x) {
 const char* arabic_to_roman(int x){
 	if (x == 1){
 		return "I";
-	}else{
+	}else if (x == 5){
 		return "V";
+	}else{
+		return "X";
 	}
 }
