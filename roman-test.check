@@ -33,9 +33,15 @@
   ck_assert_int_eq(roman_to_arabic("LL"), ERROR);
   ck_assert_int_eq(roman_to_arabic("DD"), ERROR);
 
-#test romanToArabicTwoNextHighestValuesTest
+#test romanToArabicTwoNextHighestValuesITest
   ck_assert_int_eq(roman_to_arabic("IX"), 9);
   ck_assert_int_eq(roman_to_arabic("IL"), ERROR);
   ck_assert_int_eq(roman_to_arabic("IC"), ERROR);
   ck_assert_int_eq(roman_to_arabic("ID"), ERROR);
   ck_assert_int_eq(roman_to_arabic("IM"), ERROR);
+
+#test romanToArabicTwoNextHighestValuesXTest
+  ck_assert_int_eq(roman_to_arabic("XL"), 40);
+  ck_assert_int_eq(roman_to_arabic("XC"), 90);
+  ck_assert_int_eq(roman_to_arabic("XD"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("XM"), ERROR);
