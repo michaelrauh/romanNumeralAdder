@@ -92,3 +92,4 @@
   ck_assert_str_eq(arabic_to_roman(900), "CM");
   ck_assert_str_eq(arabic_to_roman(400), "CD");
   ck_assert_str_eq(arabic_to_roman(90), "XC");
+  ck_assert_str_eq(arabic_to_roman(40), "XL");
