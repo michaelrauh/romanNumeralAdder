@@ -110,5 +110,10 @@ const char* arabic_to_roman(int x){
 }
 
 const char* add_roman(const char* x, const char* y){
-	return "II";
+	int l = roman_to_arabic(x);
+	int r = roman_to_arabic(y);
+
+	int total = l + r;
+
+	return arabic_to_roman(total);
 }
