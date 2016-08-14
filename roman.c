@@ -44,6 +44,7 @@ int roman_to_arabic(const char* x) {
 	int current_arabic = 0;
 	int previous_arabic = 0;
 	int repeat = 1;
+	int subtract = 0;
 	for (i = size; i >= 0; --i)
 	{
 		current_arabic = roman_char_to_arabic(x[i]);
@@ -52,6 +53,7 @@ int roman_to_arabic(const char* x) {
 				return ERROR;
 			}
 			total -= current_arabic;
+			subtract = 1;
 			repeat = 1;
 		}
 		else if(current_arabic == previous_arabic){
@@ -60,10 +62,14 @@ int roman_to_arabic(const char* x) {
 			if (repeat > max_repeat(current_arabic)){
 				return ERROR;
 			}
+			if (subtract){
+				return ERROR;
+			}
 		}
 		else{
 			total += current_arabic;
 			repeat = 1;
+			subtract = 0;
 		}
 		previous_arabic = current_arabic;
 	}

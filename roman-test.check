@@ -64,3 +64,6 @@
 
 #test romanToArabicNoSubtractRuleDTest
   ck_assert_int_eq(roman_to_arabic("DM"), ERROR);
+
+#test romanToArabicOneSubtractionTest
+  ck_assert_int_eq(roman_to_arabic("XXC"), ERROR);
