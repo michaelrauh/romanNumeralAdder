@@ -86,7 +86,9 @@ const char* arabic_to_roman(int x){
 		return "V";
 	}else if (x == 10){
 		return "X";
-	}else{
+	}else if (x == 50){
 		return "L";
+	}else{
+		return "C";
 	}
 }
