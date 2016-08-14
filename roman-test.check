@@ -95,3 +95,6 @@
   ck_assert_str_eq(arabic_to_roman(40), "XL");
   ck_assert_str_eq(arabic_to_roman(9), "IX");
   ck_assert_str_eq(arabic_to_roman(4), "IV");
+
+#test arabicToRomanArbitraryCaseTest
+  ck_assert_str_eq(arabic_to_roman(1989), "MCMLXXXIX");
