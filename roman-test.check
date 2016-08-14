@@ -61,3 +61,6 @@
   ck_assert_int_eq(roman_to_arabic("LC"), ERROR);
   ck_assert_int_eq(roman_to_arabic("LD"), ERROR);
   ck_assert_int_eq(roman_to_arabic("LM"), ERROR);
+
+#test romanToArabicNoSubtractRuleDTest
+  ck_assert_int_eq(roman_to_arabic("DM"), ERROR);
