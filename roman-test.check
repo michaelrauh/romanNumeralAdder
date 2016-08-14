@@ -79,3 +79,6 @@
   ck_assert_str_eq(arabic_to_roman(100), "C");
   ck_assert_str_eq(arabic_to_roman(500), "D");
   ck_assert_str_eq(arabic_to_roman(1000), "M");
+
+#test arabicToRomanAddCaseTest
+  ck_assert_str_eq(arabic_to_roman(2), "II");
