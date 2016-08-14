@@ -36,6 +36,9 @@ int roman_to_arabic(const char* x) {
 	{
 		current_arabic = roman_char_to_arabic(x[i]);
 		if (current_arabic < previous_arabic){
+			if (current_arabic == 1 && previous_arabic == 50){
+				return ERROR;
+			}
 			total -= current_arabic;
 			repeat = 1;
 		}
