@@ -122,3 +122,7 @@
 #test addBadSymbolsCase
   ck_assert_str_eq(add_roman("I", "N"), INVALID);
   ck_assert_str_eq(add_roman("N", "I"), INVALID);
+
+#test subtractBadSymbolsCase
+  ck_assert_str_eq(subtract_roman("I", "N"), INVALID);
+  ck_assert_str_eq(subtract_roman("N", "I"), INVALID);
