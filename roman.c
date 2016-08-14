@@ -81,8 +81,8 @@ int roman_to_arabic(const char* x) {
 }
 
 const char* arabic_to_max_roman_pattern(int x){
-	int arabics[] = {1000, 900, 500, 100, 50, 10, 5, 1};
-	const char* numerals[] = {"M", "CM", "D", "C", "L", "X", "V", "I"};
+	int arabics[] = {1000, 900, 500, 400, 100, 50, 10, 5, 1};
+	const char* numerals[] = {"M", "CM", "D", "CD", "C", "L", "X", "V", "I"};
 	int size = sizeof(arabics)/sizeof(arabics[0]);
 	int i;
 	for(i = 0;i < size; i++){
