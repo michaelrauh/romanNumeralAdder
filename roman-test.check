@@ -98,3 +98,6 @@
 
 #test arabicToRomanArbitraryCaseTest
   ck_assert_str_eq(arabic_to_roman(1989), "MCMLXXXIX");
+
+#test arabicToRomanOutOfBoundsCaseTest
+  ck_assert_str_eq(arabic_to_roman(5000), INVALID);
