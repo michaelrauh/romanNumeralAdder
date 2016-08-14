@@ -31,3 +31,4 @@
   ck_assert_int_eq(roman_to_arabic("VV"), ERROR);
   ck_assert_int_eq(roman_to_arabic("VVV"), ERROR);
   ck_assert_int_eq(roman_to_arabic("LL"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("DD"), ERROR);

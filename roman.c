@@ -16,6 +16,15 @@ int roman_char_to_arabic(const char x){
 	return ERROR;
 }
 
+int max_repeat(const int x){
+	if ((x == 5) || (x == 50) || (x == 500)){
+		return 1;
+	}
+	else{
+		return 3;
+	}
+}
+
 int roman_to_arabic(const char* x) {
 	int total = 0;
 	int size = strlen(x);
@@ -33,10 +42,7 @@ int roman_to_arabic(const char* x) {
 		else if(current_arabic == previous_arabic){
 			total += current_arabic;
 			repeat++;
-			if (repeat > 3){
-				return ERROR;
-			}
-			if (repeat > 1 && (current_arabic == 5) || (current_arabic == 50)){
+			if (repeat > max_repeat(current_arabic)){
 				return ERROR;
 			}
 		}
