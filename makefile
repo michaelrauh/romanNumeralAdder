@@ -1,5 +1,5 @@
-default: roman-test.check roman.c roman.h
-	checkmk roman-test.check > roman-test.c && gcc roman-test.c roman.c -o roman -lcheck -lm -lpthread -lrt
+default: roman_converter-test.check roman_converter.c roman_converter.h
+	checkmk roman_converter-test.check > roman_converter-test.c && gcc roman_converter-test.c roman_converter.c -o roman_converter -lcheck -lm -lpthread -lrt
 
 clean:
-	rm roman roman-test.c
+	rm roman_converter roman_converter-test.c
