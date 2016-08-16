@@ -1,2 +1,5 @@
-roman_converter
+roman-test.c
 roman_converter-test.c
+roman
+roman_converter
+*.o
