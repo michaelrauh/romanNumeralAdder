@@ -4,8 +4,8 @@
 #include "stdlib.h"
 
 int roman_char_to_arabic(const char x){
-	char numerals[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
-	int arabics[] = {1, 5, 10, 50, 100, 500, 1000};
+	const char numerals[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+	const int arabics[] = {1, 5, 10, 50, 100, 500, 1000};
 	int size = sizeof(numerals)/sizeof(numerals[0]);
 	int i;
 	for (i = 0; i < size; i++)
@@ -82,7 +82,7 @@ int roman_to_arabic(const char* x) {
 }
 
 const char* arabic_to_max_roman_pattern(int x){
-	int arabics[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+	const int arabics[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 	const char* numerals[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 	int size = sizeof(arabics)/sizeof(arabics[0]);
 	int i;
