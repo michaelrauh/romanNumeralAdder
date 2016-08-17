@@ -2,6 +2,8 @@
 #include "constants.h"
 #include "string.h"
 #include "stdlib.h"
+#include "stdio.h"
+
 
 int roman_char_to_arabic(const char x){
 	const char numerals[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
@@ -39,6 +41,16 @@ int invalid_subtract(const int cur, const int prev){
 	}
 }
 
+int contains(int seen[], int current, int size){
+	int i;
+	for (i = 0;i<size;i++){
+		if (seen[i] == current){
+			return 1;
+		}
+	}
+	return 0;
+}
+
 int roman_to_arabic(const char* x) {
 	int total = 0;
 	int size = strlen(x);
@@ -47,14 +59,21 @@ int roman_to_arabic(const char* x) {
 	int previous_arabic = 0;
 	int repeat = 1;
 	int subtract = 0;
+	int seen[size];
+	int tracking = 0;
 	for (i = size -1; i >=0; --i)
 	{
 		current_arabic = roman_char_to_arabic(x[i]);
+		seen[tracking] = current_arabic;
+		tracking++;
 		if (current_arabic == ERROR){
 			return ERROR;
 		}
 		if (current_arabic < previous_arabic){
 			if (invalid_subtract(current_arabic, previous_arabic)){
+				return ERROR;
+			}
+			if (contains(seen, previous_arabic, tracking-2)){
 				return ERROR;
 			}
 			total -= current_arabic;
