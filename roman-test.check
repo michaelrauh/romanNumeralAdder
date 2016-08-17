@@ -1,4 +1,5 @@
 #include "roman.h"
+#include "constants.h"
 
 #test addRomanNumeralsSimpleCase
   ck_assert_str_eq(add_roman("I", "I"), "II");
