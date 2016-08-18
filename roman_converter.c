@@ -1,9 +1,6 @@
 #include "roman_converter.h"
 #include "constants.h"
 #include "string.h"
-#include "stdlib.h"
-#include "stdio.h"
-
 
 int roman_char_to_arabic(const char x){
 	const char numerals[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
@@ -100,16 +97,16 @@ int roman_to_arabic(const char* x) {
 	return total;
 }
 
-const char* arabic_to_max_roman_pattern(int x){
+void arabic_to_max_roman_pattern(int x, char* result){
 	const int arabics[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 	const char* numerals[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 	int size = sizeof(arabics)/sizeof(arabics[0]);
 	int i;
 	for(i = 0;i < size; i++){
 		if (arabics[i] <= x){
-			char *final = malloc (strlen (numerals[i]) + 1);
-			strcpy(final, numerals[i]);
-			return final;
+			memset(result, 0, MAX_SIZE);
+			strcpy(result, numerals[i]);
+			break;
 		}
 	}
 }
@@ -117,14 +114,15 @@ const char* arabic_to_max_roman_pattern(int x){
 void arabic_to_roman(int x, char* result){
 	memset(result, 0, MAX_SIZE);
 	if (x >= 5000 || x < 1){
-		strcat(result, INVALID);
+		strcpy(result, INVALID);
 	}
 	else{
-	while(x > 0){
-		const char* current = arabic_to_max_roman_pattern(x);
-		int value = roman_to_arabic(current);
-		strcat(result, current);
-		x -= value;
+		while(x > 0){
+			char current [2];
+			arabic_to_max_roman_pattern(x, current);
+			int value = roman_to_arabic(current);
+			strcat(result, current);
+			x -= value;
+		}
 	}
-}
 }

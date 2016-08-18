@@ -1,8 +1,6 @@
 #include "roman_converter.h"
 #include "constants.h"
 #include "string.h"
-#include "stdlib.h"
-#include "stdio.h"
 
 
 void add_roman(const char* x, const char* y, char* result){
@@ -11,13 +9,13 @@ void add_roman(const char* x, const char* y, char* result){
 	int r = roman_to_arabic(y);
 
 	if (l == ERROR || r == ERROR){
-		strcat(result, INVALID);
+		strcpy(result, INVALID);
 	}else{
 
-	int total = l + r;
+		int total = l + r;
 
-	arabic_to_roman(total, result);
-}
+		arabic_to_roman(total, result);
+	}
 }
 void subtract_roman(const char* x, const char* y, char* result){
 	memset(result, 0, MAX_SIZE);
@@ -25,10 +23,10 @@ void subtract_roman(const char* x, const char* y, char* result){
 	int r = roman_to_arabic(y);
 
 	if (l == ERROR || r == ERROR){
-		strcat(result, INVALID);
+		strcpy(result, INVALID);
 	}else{
 
-	int total = l - r;
+		int total = l - r;
 
-	arabic_to_roman(total, result);
-}}
+		arabic_to_roman(total, result);
+	}}
