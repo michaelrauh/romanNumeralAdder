@@ -38,7 +38,7 @@ int invalid_subtract(const int cur, const int prev){
 	}
 }
 
-int contains(int seen[], int current, int size){
+int contains(const int seen[], const int current, const int size){
 	int i;
 	for (i = 0;i<size;i++){
 		if (seen[i] == current){
@@ -97,7 +97,7 @@ int roman_to_arabic(const char* x) {
 	return total;
 }
 
-void arabic_to_max_roman_pattern(int x, char* result){
+void arabic_to_max_roman_pattern(const int x, char* result){
 	const int arabics[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 	const char* numerals[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 	int size = sizeof(arabics)/sizeof(arabics[0]);
