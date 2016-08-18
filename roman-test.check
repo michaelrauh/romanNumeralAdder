@@ -2,25 +2,49 @@
 #include "constants.h"
 
 #test addRomanNumeralsSimpleCase
-  ck_assert_str_eq(add_roman("I", "I"), "II");
-  ck_assert_str_eq(add_roman("I", "II"), "III");
-  ck_assert_str_eq(add_roman("XXX", "XXX"), "LX");
-  ck_assert_str_eq(add_roman("XXX", "XXIX"), "LIX");
+  char result[MAX_SIZE];
+  add_roman("I", "I", result);
+  ck_assert_str_eq(result, "II");
+
+  add_roman("I", "II", result);
+  ck_assert_str_eq(result, "III");
+
+  add_roman("XXX", "XXX", result);
+  ck_assert_str_eq(result, "LX");
+
+  add_roman("XXX", "XXIX", result);
+  ck_assert_str_eq(result, "LIX");
 
 #test addRomanNumeralsOverflowCase
-  ck_assert_str_eq(add_roman("MMM", "MMM"), INVALID);
+  char result[MAX_SIZE];
+  add_roman("MMM", "MMM", result);
+  ck_assert_str_eq(result, INVALID);
 
 #test subtractRomanNumeralSimpleCase
-  ck_assert_str_eq(subtract_roman("II", "I"), "I");
-  ck_assert_str_eq(subtract_roman("MCXVI", "XX"), "MXCVI");
+  char result[MAX_SIZE];
+  subtract_roman("II", "I", result);
+  ck_assert_str_eq(result, "I");
+
+  subtract_roman("MCXVI", "XX", result);
+  ck_assert_str_eq(result, "MXCVI");
 
 #test subtractRomanNumeralUnderflowCase
-  ck_assert_str_eq(subtract_roman("I", "II"), INVALID);
+  char result[MAX_SIZE];
+  subtract_roman("I", "II", result);
+  ck_assert_str_eq(result, INVALID);
 
 #test addBadSymbolsCase
-  ck_assert_str_eq(add_roman("I", "N"), INVALID);
-  ck_assert_str_eq(add_roman("N", "I"), INVALID);
+  char result[MAX_SIZE];
+  add_roman("I", "N", result);
+  ck_assert_str_eq(result, INVALID);
+
+  add_roman("N", "I", result);
+  ck_assert_str_eq(result, INVALID);
 
 #test subtractBadSymbolsCase
-  ck_assert_str_eq(subtract_roman("I", "N"), INVALID);
-  ck_assert_str_eq(subtract_roman("N", "I"), INVALID);
+  char result[MAX_SIZE];
+  subtract_roman("I", "N", result);
+  ck_assert_str_eq(result, INVALID);
+
+  subtract_roman("N", "I", result);
+  ck_assert_str_eq(result, INVALID);

@@ -114,17 +114,17 @@ const char* arabic_to_max_roman_pattern(int x){
 	}
 }
 
-const char* arabic_to_roman(int x){
+void arabic_to_roman(int x, char* result){
+	memset(result, 0, MAX_SIZE);
 	if (x >= 5000 || x < 1){
-		return INVALID;
+		strcat(result, INVALID);
 	}
-	char* final = malloc(sizeof(char) * 15);
-	final[0] = '\0';
+	else{
 	while(x > 0){
 		const char* current = arabic_to_max_roman_pattern(x);
 		int value = roman_to_arabic(current);
-		strcat(final, current);
+		strcat(result, current);
 		x -= value;
 	}
-		return final;
+}
 }

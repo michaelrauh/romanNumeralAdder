@@ -2,29 +2,33 @@
 #include "constants.h"
 #include "string.h"
 #include "stdlib.h"
+#include "stdio.h"
 
-const char* add_roman(const char* x, const char* y){
+
+void add_roman(const char* x, const char* y, char* result){
+	memset(result, 0, MAX_SIZE);
 	int l = roman_to_arabic(x);
 	int r = roman_to_arabic(y);
 
 	if (l == ERROR || r == ERROR){
-		return INVALID;
-	}
+		strcat(result, INVALID);
+	}else{
 
 	int total = l + r;
 
-	return arabic_to_roman(total);
+	arabic_to_roman(total, result);
 }
-
-const char* subtract_roman(const char* x, const char* y){
+}
+void subtract_roman(const char* x, const char* y, char* result){
+	memset(result, 0, MAX_SIZE);
 	int l = roman_to_arabic(x);
 	int r = roman_to_arabic(y);
 
 	if (l == ERROR || r == ERROR){
-		return INVALID;
-	}
+		strcat(result, INVALID);
+	}else{
 
 	int total = l - r;
 
-	return arabic_to_roman(total);
-}
+	arabic_to_roman(total, result);
+}}

@@ -1,2 +1,2 @@
-const char* add_roman(const char* x, const char* y);
-const char* subtract_roman(const char* x, const char* y);
+void add_roman(const char* x, const char* y, char* result);
+void subtract_roman(const char* x, const char* y, char* result);

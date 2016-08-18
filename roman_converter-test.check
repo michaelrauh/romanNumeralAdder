@@ -78,32 +78,73 @@
   ck_assert_int_eq(roman_to_arabic("XXIX"), 29);
 
 #test arabicToRomanBasicConversionTest
-  ck_assert_str_eq(arabic_to_roman(1), "I");
-  ck_assert_str_eq(arabic_to_roman(5), "V");
-  ck_assert_str_eq(arabic_to_roman(10), "X");
-  ck_assert_str_eq(arabic_to_roman(50), "L");
-  ck_assert_str_eq(arabic_to_roman(100), "C");
-  ck_assert_str_eq(arabic_to_roman(500), "D");
-  ck_assert_str_eq(arabic_to_roman(1000), "M");
+  char result[MAX_SIZE];
+  arabic_to_roman(1, result);
+  ck_assert_str_eq(result, "I");
+
+  arabic_to_roman(5, result);
+  ck_assert_str_eq(result, "V");
+
+  arabic_to_roman(10, result);
+  ck_assert_str_eq(result, "X");
+
+  arabic_to_roman(50, result);
+  ck_assert_str_eq(result, "L");
+
+  arabic_to_roman(100, result);
+  ck_assert_str_eq(result, "C");
+
+  arabic_to_roman(500, result);
+  ck_assert_str_eq(result, "D");
+
+  arabic_to_roman(1000, result);
+  ck_assert_str_eq(result, "M");
 
 #test arabicToRomanAddCaseTest
-  ck_assert_str_eq(arabic_to_roman(2), "II");
-  ck_assert_str_eq(arabic_to_roman(6), "VI");
-  ck_assert_str_eq(arabic_to_roman(20), "XX");
-  ck_assert_str_eq(arabic_to_roman(21), "XXI");
-  ck_assert_str_eq(arabic_to_roman(1116), "MCXVI");
+  char result[MAX_SIZE];
+  arabic_to_roman(2, result);
+  ck_assert_str_eq(result, "II");
+
+  arabic_to_roman(6, result);
+  ck_assert_str_eq(result, "VI");
+
+  arabic_to_roman(20, result);
+  ck_assert_str_eq(result, "XX");
+
+  arabic_to_roman(21, result);
+  ck_assert_str_eq(result, "XXI");
+
+  arabic_to_roman(1116, result);
+  ck_assert_str_eq(result, "MCXVI");
 
 #test arabicToRomanSimpleSubtractCaseTest
-  ck_assert_str_eq(arabic_to_roman(900), "CM");
-  ck_assert_str_eq(arabic_to_roman(400), "CD");
-  ck_assert_str_eq(arabic_to_roman(90), "XC");
-  ck_assert_str_eq(arabic_to_roman(40), "XL");
-  ck_assert_str_eq(arabic_to_roman(9), "IX");
-  ck_assert_str_eq(arabic_to_roman(4), "IV");
+  char result[MAX_SIZE];
+  arabic_to_roman(900, result);
+  ck_assert_str_eq(result, "CM");
+
+  arabic_to_roman(400, result);
+  ck_assert_str_eq(result, "CD");
+
+  arabic_to_roman(90, result);
+  ck_assert_str_eq(result, "XC");
+
+  arabic_to_roman(40, result);
+  ck_assert_str_eq(result, "XL");
+
+  arabic_to_roman(9, result);
+  ck_assert_str_eq(result, "IX");
+
+  arabic_to_roman(4, result);
+  ck_assert_str_eq(result, "IV");
 
 #test arabicToRomanArbitraryCaseTest
-  ck_assert_str_eq(arabic_to_roman(1989), "MCMLXXXIX");
+  char result[MAX_SIZE];
+  arabic_to_roman(1989, result);
+  ck_assert_str_eq(result, "MCMLXXXIX");
 
 #test arabicToRomanOutOfBoundsCaseTest
-  ck_assert_str_eq(arabic_to_roman(5000), INVALID);
-  ck_assert_str_eq(arabic_to_roman(-1), INVALID);
+  char result[MAX_SIZE];
+  arabic_to_roman(5000, result);
+  ck_assert_str_eq(result, INVALID);
+  arabic_to_roman(-1, result);
+  ck_assert_str_eq(result, INVALID);
