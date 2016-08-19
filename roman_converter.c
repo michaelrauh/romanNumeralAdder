@@ -3,8 +3,8 @@
 #include "string.h"
 
 int roman_char_to_arabic(const char x){
-	const char numerals[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
-	const int arabics[] = {1, 5, 10, 50, 100, 500, 1000};
+	const char numerals[] = {ROMAN_CHAR_I, ROMAN_CHAR_V, ROMAN_CHAR_X, ROMAN_CHAR_L, ROMAN_CHAR_C, ROMAN_CHAR_D, ROMAN_CHAR_M};
+	const int arabics[] = {ARABIC_ONE, ARABIC_FIVE, ARABIC_TEN, ARABIC_FIFTY, ARABIC_ONE_HUNDRED, ARABIC_FIVE_HUNDRED, ARABIC_ONE_THOUSAND};
 	int size = sizeof(numerals)/sizeof(numerals[0]);
 	int i;
 	for (i = 0; i < size; i++)
@@ -18,23 +18,23 @@ int roman_char_to_arabic(const char x){
 }
 
 int max_repeat(const int x){
-	if ((x == 5) || (x == 50) || (x == 500)){
-		return 1;
+	if ((x == ARABIC_FIVE) || (x == ARABIC_FIFTY) || (x == ARABIC_FIVE_HUNDRED)){
+		return SMALLER_MAX_REPEAT;
 	}
 	else{
-		return 3;
+		return LARGER_MAX_REPEAT;
 	}
 }
 
 int invalid_subtract(const int cur, const int prev){
-	if (cur == 1){
-		return !((prev == 5) || (prev == 10));
+	if (cur == ARABIC_ONE){
+		return !((prev == ARABIC_FIVE) || (prev == ARABIC_TEN));
 	}
-	if (cur == 10){
-		return !((prev == 50) || (prev == 100));
+	if (cur == ARABIC_TEN){
+		return !((prev == ARABIC_FIFTY) || (prev == ARABIC_ONE_HUNDRED));
 	}
-	if (cur == 100){
-		return !((prev == 500) || (prev == 1000));
+	if (cur == ARABIC_ONE_HUNDRED){
+		return !((prev == ARABIC_FIVE_HUNDRED) || (prev == ARABIC_ONE_THOUSAND));
 	}
 }
 
@@ -57,7 +57,7 @@ int roman_to_arabic(const char* x) {
 	int i;
 	int current_arabic = 0;
 	int previous_arabic = 0;
-	int repeat = 1;
+	int repeat = MINIMUM_REPEAT;
 	int subtract = 0;
 	int seen[size];
 	int tracking = 0;
@@ -73,12 +73,12 @@ int roman_to_arabic(const char* x) {
 			if (invalid_subtract(current_arabic, previous_arabic)){
 				return ERROR;
 			}
-			if (contains(seen, previous_arabic, tracking-2)){
+			if (contains(seen, previous_arabic, tracking-PLACE_VALUE_LOOK_BACK)){
 				return ERROR;
 			}
 			total -= current_arabic;
 			subtract = 1;
-			repeat = 1;
+			repeat = MINIMUM_REPEAT;
 		}
 		else if(current_arabic == previous_arabic){
 			total += current_arabic;
@@ -92,7 +92,7 @@ int roman_to_arabic(const char* x) {
 		}
 		else{
 			total += current_arabic;
-			repeat = 1;
+			repeat = MINIMUM_REPEAT;
 			subtract = 0;
 		}
 		previous_arabic = current_arabic;
@@ -101,8 +101,8 @@ int roman_to_arabic(const char* x) {
 }
 
 void arabic_to_max_roman_pattern(const int x, char* result){
-	const int arabics[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-	const char* numerals[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+	const int arabics[] = {ARABIC_ONE_THOUSAND, ARABIC_NINE_HUNDRED, ARABIC_FIVE_HUNDRED, ARABIC_FOUR_HUNDRED, ARABIC_ONE_HUNDRED, ARABIC_NINETY, ARABIC_FIFTY, ARABIC_FORTY, ARABIC_TEN, ARABIC_NINE, ARABIC_FIVE, ARABIC_FOUR, ARABIC_ONE};
+	const char* numerals[] = {ROMAN_STRING_M, ROMAN_STRING_CM, ROMAN_STRING_D, ROMAN_STRING_CD, ROMAN_STRING_C, ROMAN_STRING_XC, ROMAN_STRING_L, ROMAN_STRING_XL, ROMAN_STRING_X, ROMAN_STRING_IX, ROMAN_STRING_V, ROMAN_STRING_IV, ROMAN_STRING_I};
 	int size = sizeof(arabics)/sizeof(arabics[0]);
 	int i;
 	for(i = 0;i < size; i++){
@@ -116,7 +116,7 @@ void arabic_to_max_roman_pattern(const int x, char* result){
 
 void arabic_to_roman(int x, char* result){
 	memset(result, 0, MAX_SIZE);
-	if (x >= 4000 || x < 1){
+	if (x >= TOO_LARGE_ARABIC || x < SMALLEST_ARABIC){
 		strcpy(result, INVALID);
 	}
 	else{
