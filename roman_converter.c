@@ -113,7 +113,7 @@ void arabic_to_max_roman_pattern(const int x, char* result){
 
 void arabic_to_roman(int x, char* result){
 	memset(result, 0, MAX_SIZE);
-	if (x >= 5000 || x < 1){
+	if (x >= 4000 || x < 1){
 		strcpy(result, INVALID);
 	}
 	else{

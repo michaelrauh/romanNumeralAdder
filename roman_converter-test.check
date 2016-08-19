@@ -144,7 +144,7 @@
 
 #test arabicToRomanOutOfBoundsCaseTest
   char result[MAX_SIZE];
-  arabic_to_roman(5000, result);
+  arabic_to_roman(4000, result);
   ck_assert_str_eq(result, INVALID);
   arabic_to_roman(-1, result);
   ck_assert_str_eq(result, INVALID);
