@@ -77,6 +77,9 @@
   ck_assert_int_eq(roman_to_arabic("XIXX"), ERROR);
   ck_assert_int_eq(roman_to_arabic("XXIX"), 29);
 
+#test romanToArabicNullCaseTest
+  ck_assert_int_eq(roman_to_arabic(NULL), ERROR);
+
 #test arabicToRomanBasicConversionTest
   char result[MAX_SIZE];
   arabic_to_roman(1, result);

@@ -49,6 +49,9 @@ int contains(const int seen[], const int current, const int size){
 }
 
 int roman_to_arabic(const char* x) {
+	if (x == NULL){
+		return ERROR;
+	}
 	int total = 0;
 	int size = strlen(x);
 	int i;
