@@ -3,7 +3,7 @@
 
 #define ERROR 0
 #define INVALID "Z"
-#define MAX_SIZE 15
+#define MAX_SIZE 16
 
 #define ROMAN_CHAR_I 'I'
 #define ROMAN_CHAR_V 'V'
@@ -51,5 +51,7 @@
 
 #define TOO_LARGE_ARABIC 4000
 #define SMALLEST_ARABIC 1
+
+#define PATTERN_SIZE 3
 
 #endif /* CONSTANTS_H */

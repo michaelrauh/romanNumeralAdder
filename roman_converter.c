@@ -121,7 +121,7 @@ void arabic_to_roman(int x, char* result){
 	}
 	else{
 		while(x > 0){
-			char current [2];
+			char current [PATTERN_SIZE];
 			arabic_to_max_roman_pattern(x, current);
 			int value = roman_to_arabic(current);
 			strcat(result, current);
