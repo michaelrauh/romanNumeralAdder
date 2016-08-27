@@ -5,6 +5,9 @@
 #define INVALID "Z"
 #define MAX_SIZE 16
 
+#define NUMBER_OF_NUMERALS 7
+#define NUMBER_OF_NUMERAL_PATTERNS 13
+
 #define ROMAN_CHAR_I 'I'
 #define ROMAN_CHAR_V 'V'
 #define ROMAN_CHAR_X 'X'

@@ -5,9 +5,8 @@
 int roman_char_to_arabic(const char x){
 	const char numerals[] = {ROMAN_CHAR_I, ROMAN_CHAR_V, ROMAN_CHAR_X, ROMAN_CHAR_L, ROMAN_CHAR_C, ROMAN_CHAR_D, ROMAN_CHAR_M};
 	const int arabics[] = {ARABIC_ONE, ARABIC_FIVE, ARABIC_TEN, ARABIC_FIFTY, ARABIC_ONE_HUNDRED, ARABIC_FIVE_HUNDRED, ARABIC_ONE_THOUSAND};
-	int size = sizeof(numerals)/sizeof(numerals[0]);
 	int i;
-	for (i = 0; i < size; i++)
+	for (i = 0; i < NUMBER_OF_NUMERALS; i++)
 	{
 		if (numerals[i] == x)
 		{
@@ -103,9 +102,8 @@ int roman_to_arabic(const char* x) {
 void arabic_to_max_roman_pattern(const int x, char* result){
 	const int arabics[] = {ARABIC_ONE_THOUSAND, ARABIC_NINE_HUNDRED, ARABIC_FIVE_HUNDRED, ARABIC_FOUR_HUNDRED, ARABIC_ONE_HUNDRED, ARABIC_NINETY, ARABIC_FIFTY, ARABIC_FORTY, ARABIC_TEN, ARABIC_NINE, ARABIC_FIVE, ARABIC_FOUR, ARABIC_ONE};
 	const char* numerals[] = {ROMAN_STRING_M, ROMAN_STRING_CM, ROMAN_STRING_D, ROMAN_STRING_CD, ROMAN_STRING_C, ROMAN_STRING_XC, ROMAN_STRING_L, ROMAN_STRING_XL, ROMAN_STRING_X, ROMAN_STRING_IX, ROMAN_STRING_V, ROMAN_STRING_IV, ROMAN_STRING_I};
-	int size = sizeof(arabics)/sizeof(arabics[0]);
 	int i;
-	for(i = 0;i < size; i++){
+	for(i = 0;i < NUMBER_OF_NUMERAL_PATTERNS; i++){
 		if (arabics[i] <= x){
 			memset(result, 0, MAX_SIZE);
 			strcpy(result, numerals[i]);
