@@ -2,7 +2,7 @@
 #define CONSTANTS_H
 
 #define ERROR 0
-#define INVALID "Z"
+#define INVALID ""
 #define MAX_SIZE 16
 
 #define NUMBER_OF_NUMERALS 7
