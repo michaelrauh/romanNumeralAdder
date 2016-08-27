@@ -1,50 +1,62 @@
 #include "roman.h"
 #include "constants.h"
 
-#test addRomanNumeralsSimpleCase
+#test add_roman_numerals_simple_test_case_I_I
   char result[MAX_SIZE];
   add_roman("I", "I", result);
   ck_assert_str_eq(result, "II");
 
+#test add_roman_numerals_simple_test_case_I_II
+  char result[MAX_SIZE];
   add_roman("I", "II", result);
   ck_assert_str_eq(result, "III");
 
+#test add_roman_numerals_simple_test_case_XXX_XXX
+  char result[MAX_SIZE];
   add_roman("XXX", "XXX", result);
   ck_assert_str_eq(result, "LX");
 
+#test add_roman_numerals_simple_test_case_XXX_XXIX
+  char result[MAX_SIZE];
   add_roman("XXX", "XXIX", result);
   ck_assert_str_eq(result, "LIX");
 
-#test addRomanNumeralsOverflowCase
+#test add_roman_numerals_overflow_case
   char result[MAX_SIZE];
   add_roman("MMM", "MMM", result);
   ck_assert_str_eq(result, INVALID);
 
-#test subtractRomanNumeralSimpleCase
+#test subtract_roman_numeral_simple_test_case_II_I
   char result[MAX_SIZE];
   subtract_roman("II", "I", result);
   ck_assert_str_eq(result, "I");
 
+#test subtract_roman_numeral_test_case_MCXVI_XX
+  char result[MAX_SIZE];
   subtract_roman("MCXVI", "XX", result);
   ck_assert_str_eq(result, "MXCVI");
 
-#test subtractRomanNumeralUnderflowCase
+#test subtract_roman_numeral_underflow_case
   char result[MAX_SIZE];
   subtract_roman("I", "II", result);
   ck_assert_str_eq(result, INVALID);
 
-#test addBadSymbolsCase
+#test add_bad_symbols_test_case_right_side_invalid_case
   char result[MAX_SIZE];
   add_roman("I", "N", result);
   ck_assert_str_eq(result, INVALID);
 
+#test add_bad_symbols_test_case_left_side_invalid_case
+  char result[MAX_SIZE];
   add_roman("N", "I", result);
   ck_assert_str_eq(result, INVALID);
 
-#test subtractBadSymbolsCase
+#test subtract_bad_symbols_test_case_right_side_invalid_case
   char result[MAX_SIZE];
   subtract_roman("I", "N", result);
   ck_assert_str_eq(result, INVALID);
 
+#test subtract_bad_symbols_test_case_left_side_invalid_case
+  char result[MAX_SIZE];
   subtract_roman("N", "I", result);
   ck_assert_str_eq(result, INVALID);
