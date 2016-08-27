@@ -47,6 +47,24 @@ int contains(const int seen[], const int current, const int size){
 	return 0;
 }
 
+int check_for_errors_repeat(const int repeat, const int current_arabic, const int subtract){
+	if (repeat > max_repeat(current_arabic) || subtract){
+		return 1;
+	}else{
+	  return 0;
+	}
+}
+
+int check_for_errors_subtract(const int current_arabic, const int previous_arabic, const int tracking, const int* seen){
+	if (invalid_subtract(current_arabic, previous_arabic)){
+		return 1;
+	}
+	if (contains(seen, previous_arabic, tracking-PLACE_VALUE_LOOK_BACK)){
+		return 1;
+	}
+	return 0;
+}
+
 int roman_to_arabic(const char* x) {
 	if (x == NULL){
 		return ERROR;
@@ -69,10 +87,7 @@ int roman_to_arabic(const char* x) {
 			return ERROR;
 		}
 		if (current_arabic < previous_arabic){
-			if (invalid_subtract(current_arabic, previous_arabic)){
-				return ERROR;
-			}
-			if (contains(seen, previous_arabic, tracking-PLACE_VALUE_LOOK_BACK)){
+			if (check_for_errors_subtract(current_arabic, previous_arabic, tracking, seen)){
 				return ERROR;
 			}
 			total -= current_arabic;
@@ -82,10 +97,7 @@ int roman_to_arabic(const char* x) {
 		else if(current_arabic == previous_arabic){
 			total += current_arabic;
 			repeat++;
-			if (repeat > max_repeat(current_arabic)){
-				return ERROR;
-			}
-			if (subtract){
+			if (check_for_errors_repeat(repeat, current_arabic, subtract)){
 				return ERROR;
 			}
 		}
