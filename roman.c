@@ -2,10 +2,10 @@
 #include "constants.h"
 #include "string.h"
 
-void handle_roman(const char* x, const char* y, char* result, const int add){
+void handle_roman(const char* x, int x_len, const char* y, int y_len, char* result, const int add){
 	memset(result, 0, MAX_SIZE);
-	int l = roman_to_arabic(x);
-	int r = roman_to_arabic(y);
+	int l = roman_to_arabic(x, x_len);
+	int r = roman_to_arabic(y, y_len);
 	int total;
 
 	if (l == ERROR || r == ERROR){
@@ -21,10 +21,10 @@ void handle_roman(const char* x, const char* y, char* result, const int add){
 	}
 }
 
-void add_roman(const char* x, const char* y, char* result){
-	handle_roman(x, y, result, 1);
+void add_roman(const char* x, int x_len, const char* y, int y_len, char* result){
+	handle_roman(x, x_len, y, y_len, result, 1);
 }
 
-void subtract_roman(const char* x, const char* y, char* result){
-	handle_roman(x, y, result, 0);
+void subtract_roman(const char* x, int x_len, const char* y, int y_len, char* result){
+	handle_roman(x, x_len, y, y_len, result, 0);
 }

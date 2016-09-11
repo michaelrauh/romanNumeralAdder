@@ -65,12 +65,11 @@ int check_for_errors_subtract(const int current_arabic, const int previous_arabi
 	return 0;
 }
 
-int roman_to_arabic(const char* x) {
+int roman_to_arabic(const char* x, int size) {
 	if (x == NULL){
 		return ERROR;
 	}
 	int total = 0;
-	int size = strlen(x);
 	int i;
 	int current_arabic = 0;
 	int previous_arabic = 0;

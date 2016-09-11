@@ -2,148 +2,148 @@
 #include "constants.h"
 
 #test roman_to_arabic_basic_conversion_test_case_I
-  ck_assert_int_eq(roman_to_arabic("I"), 1);
+  ck_assert_int_eq(roman_to_arabic("I", 1), 1);
 
 #test roman_to_arabic_basic_conversion_test_case_V
-  ck_assert_int_eq(roman_to_arabic("V"), 5);
+  ck_assert_int_eq(roman_to_arabic("V", 1), 5);
 
 #test roman_to_arabic_basic_conversion_test_case_X
-  ck_assert_int_eq(roman_to_arabic("X"), 10);
+  ck_assert_int_eq(roman_to_arabic("X", 1), 10);
 
 #test roman_to_arabic_basic_conversion_test_case_L
-  ck_assert_int_eq(roman_to_arabic("L"), 50);
+  ck_assert_int_eq(roman_to_arabic("L", 1), 50);
 
 #test roman_to_arabic_basic_conversion_test_case_C
-  ck_assert_int_eq(roman_to_arabic("C"), 100);
+  ck_assert_int_eq(roman_to_arabic("C", 1), 100);
 
 #test roman_to_arabic_basic_conversion_test_case_D
-  ck_assert_int_eq(roman_to_arabic("D"), 500);
+  ck_assert_int_eq(roman_to_arabic("D", 1), 500);
 
 #test roman_to_arabic_basic_conversion_test_case_M
-  ck_assert_int_eq(roman_to_arabic("M"), 1000);
+  ck_assert_int_eq(roman_to_arabic("M", 1), 1000);
 
 #test roman_to_arabic_basic_conversion_test_case_invalid
-  ck_assert_int_eq(roman_to_arabic("N"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("N", 1), ERROR);
 
 #test roman_to_arabic_basic_conversion_test_case_empty
-  ck_assert_int_eq(roman_to_arabic(""), ERROR);
+  ck_assert_int_eq(roman_to_arabic("", 0), ERROR);
 
 #test roman_to_arabic_adding_test_case_II
-  ck_assert_int_eq(roman_to_arabic("II"), 2);
+  ck_assert_int_eq(roman_to_arabic("II", 2), 2);
 
 #test roman_to_arabic_adding_test_case_III
-  ck_assert_int_eq(roman_to_arabic("III"), 3);
+  ck_assert_int_eq(roman_to_arabic("III", 3), 3);
 
 #test roman_to_arabic_adding_test_case_VI
-  ck_assert_int_eq(roman_to_arabic("VI"), 6);
+  ck_assert_int_eq(roman_to_arabic("VI", 2), 6);
 
 #test roman_to_arabic_adding_test_case_VII
-  ck_assert_int_eq(roman_to_arabic("VII"), 7);
+  ck_assert_int_eq(roman_to_arabic("VII", 3), 7);
 
 #test roman_to_arabic_adding_test_case_XII
-  ck_assert_int_eq(roman_to_arabic("XII"), 12);
+  ck_assert_int_eq(roman_to_arabic("XII", 3), 12);
 
 #test roman_to_arabic_adding_test_case_MXI
-  ck_assert_int_eq(roman_to_arabic("MXI"), 1011);
+  ck_assert_int_eq(roman_to_arabic("MXI", 3), 1011);
 
 #test roman_to_arabic_subtract_test
-  ck_assert_int_eq(roman_to_arabic("IV"), 4);
+  ck_assert_int_eq(roman_to_arabic("IV", 2), 4);
 
 #test roman_to_arabic_repeat_four_test_case_IIII
-  ck_assert_int_eq(roman_to_arabic("IIII"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("IIII", 4), ERROR);
 
 #test roman_to_arabic_repeat_four_test_case_XXXX
-  ck_assert_int_eq(roman_to_arabic("XXXX"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("XXXX", 4), ERROR);
 
 #test roman_to_arabic_repeat_four_test_case_CCCC
-  ck_assert_int_eq(roman_to_arabic("CCCC"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("CCCC", 4), ERROR);
 
 #test roman_to_arabic_repeat_four_test_case_MMMM
-  ck_assert_int_eq(roman_to_arabic("MMMM"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("MMMM", 4), ERROR);
 
 #test roman_to_arabic_repeat_two_test_case_VV
-  ck_assert_int_eq(roman_to_arabic("VV"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VV", 2), ERROR);
 
 #test roman_to_arabic_repeat_two_test_case_VVV
-  ck_assert_int_eq(roman_to_arabic("VVV"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VVV", 3), ERROR);
 
 #test roman_to_arabic_repeat_two_test_case_LL
-  ck_assert_int_eq(roman_to_arabic("LL"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("LL", 2), ERROR);
 
 #test roman_to_arabic_repeat_two_test_case_DD
-  ck_assert_int_eq(roman_to_arabic("DD"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("DD", 2), ERROR);
 
 #test roman_to_arabic_two_next_highest_values_test_case_I_X_valid
-  ck_assert_int_eq(roman_to_arabic("IX"), 9);
+  ck_assert_int_eq(roman_to_arabic("IX", 2), 9);
 
 #test roman_to_arabic_two_next_highest_values_test_case_I_L_invalid
-  ck_assert_int_eq(roman_to_arabic("IL"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("IL", 2), ERROR);
 
 #test roman_to_arabic_two_next_highest_values_test_case_I_C_invalid
-  ck_assert_int_eq(roman_to_arabic("IC"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("IC", 2), ERROR);
 
 #test roman_to_arabic_two_next_highest_values_test_case_I_D_invalid
-  ck_assert_int_eq(roman_to_arabic("ID"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("ID", 2), ERROR);
 
 #test roman_to_arabic_two_next_highest_values_test_case_I_M_invalid
-  ck_assert_int_eq(roman_to_arabic("IM"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("IM", 2), ERROR);
 
 #test roman_to_arabic_two_next_highest_values_test_case_X_L_valid
-  ck_assert_int_eq(roman_to_arabic("XL"), 40);
+  ck_assert_int_eq(roman_to_arabic("XL", 2), 40);
 
 #test roman_to_arabic_two_next_highest_values_test_case_X_C_valid
-  ck_assert_int_eq(roman_to_arabic("XC"), 90);
+  ck_assert_int_eq(roman_to_arabic("XC", 2), 90);
 
 #test roman_to_arabic_two_next_highest_values_test_case_X_D_invalid
-  ck_assert_int_eq(roman_to_arabic("XD"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("XD", 2), ERROR);
 
 #test roman_to_arabic_two_next_highest_values_test_case_X_M_invalid
-  ck_assert_int_eq(roman_to_arabic("XM"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("XM", 2), ERROR);
 
 #test roman_to_arabic_two_next_highest_values_test_case_C_D_valid
-    ck_assert_int_eq(roman_to_arabic("CD"), 400);
+    ck_assert_int_eq(roman_to_arabic("CD", 2), 400);
 
 #test roman_to_arabic_two_next_highest_values_test_case_C_M_valid
-    ck_assert_int_eq(roman_to_arabic("CM"), 900);
+    ck_assert_int_eq(roman_to_arabic("CM", 2), 900);
 
 #test roman_to_arabic_no_subtract_rule_V_test_case_V_X
-  ck_assert_int_eq(roman_to_arabic("VX"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VX", 2), ERROR);
 
 #test roman_to_arabic_no_subtract_rule_V_test_case_V_L
-  ck_assert_int_eq(roman_to_arabic("VL"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VL", 2), ERROR);
 
 #test roman_to_arabic_no_subtract_rule_V_test_case_V_C
-  ck_assert_int_eq(roman_to_arabic("VC"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VC", 2), ERROR);
 
 #test roman_to_arabic_no_subtract_rule_V_test_case_V_D
-  ck_assert_int_eq(roman_to_arabic("VD"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VD", 2), ERROR);
 
 #test roman_to_arabic_no_subtract_rule_V_test_case_V_M
-  ck_assert_int_eq(roman_to_arabic("VM"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("VM", 2), ERROR);
 
 #test roman_to_arabic_no_subtract_rule_L_test_case_L_C
-  ck_assert_int_eq(roman_to_arabic("LC"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("LC", 2), ERROR);
 
 #test roman_to_arabic_no_subtract_rule_L_test_case_L_D
-  ck_assert_int_eq(roman_to_arabic("LD"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("LD", 2), ERROR);
 
 #test roman_to_arabic_no_subtract_rule_L_test_case_L_M
-  ck_assert_int_eq(roman_to_arabic("LM"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("LM", 2), ERROR);
 
 #test roman_to_arabic_no_subtract_rule_D_test_case_D_M
-  ck_assert_int_eq(roman_to_arabic("DM"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("DM", 2), ERROR);
 
 #test roman_to_arabic_one_subtraction_test
-  ck_assert_int_eq(roman_to_arabic("XXC"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("XXC", 3), ERROR);
 
 #test roman_to_arabic_long_invalid_test
-    ck_assert_int_eq(roman_to_arabic("NI"), ERROR);
+    ck_assert_int_eq(roman_to_arabic("NI", 2), ERROR);
 
 #test roman_to_arabic_place_value_invalid_test
-  ck_assert_int_eq(roman_to_arabic("XIXX"), ERROR);
+  ck_assert_int_eq(roman_to_arabic("XIXX", 4), ERROR);
 
 #test roman_to_arabic_null_case_test
-  ck_assert_int_eq(roman_to_arabic(NULL), ERROR);
+  ck_assert_int_eq(roman_to_arabic(NULL, 0), ERROR);
 
 #test arabic_to_roman_basic_conversion_test_case_I
   char result[MAX_SIZE];
