@@ -3,29 +3,29 @@
 
 all: roman roman_converter
 
-roman: roman-converter.o roman.o roman-test.o
-	gcc roman.o roman_converter.o roman-test.o -o roman -lcheck -lm -lpthread -lrt
+roman: roman_converter.o roman.o roman_test.o
+	gcc roman.o roman_converter.o roman_test.o -o roman -lcheck -lm -lpthread -lrt
 
-roman_converter: roman_converter.o roman_converter-test.o
-	gcc roman_converter-test.o roman_converter.o -o roman_converter -lcheck -lm -lpthread -lrt
+roman_converter: roman_converter.o roman_converter_test.o
+	gcc roman_converter_test.o roman_converter.o -o roman_converter -lcheck -lm -lpthread -lrt
 
-roman_converter-test.o: roman_converter-test.c
-	gcc roman_converter-test.c -o roman_converter-test.o -c
+roman_converter_test.o: roman_converter_test.c
+	gcc roman_converter_test.c -o roman_converter_test.o -c
 
-roman_converter-test.c: roman_converter-test.check
-	checkmk roman_converter-test.check > roman_converter-test.c
+roman_converter_test.c: roman_converter_test.check
+	checkmk roman_converter_test.check > roman_converter_test.c
 
-roman-converter.o: roman_converter.c
+roman_converter.o: roman_converter.c
 	gcc roman_converter.c -o roman_converter.o -c
 
-roman-test.o: roman-test.c
-	gcc roman-test.c -o roman-test.o -c
+roman_test.o: roman_test.c
+	gcc roman_test.c -o roman_test.o -c
 
-roman-test.c: roman-test.check
-	checkmk roman-test.check > roman-test.c
+roman_test.c: roman_test.check
+	checkmk roman_test.check > roman_test.c
 
 roman.o: roman.c
 	gcc roman.c -o roman.o -c
 
 clean:
-	rm -f *.o roman-test.c roman_converter-test.c roman roman_converter
+	rm -f *.o roman_test.c roman_converter_test.c roman roman_converter
