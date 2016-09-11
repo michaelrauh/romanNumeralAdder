@@ -1,5 +1,5 @@
-#include "roman_converter.h"
-#include "constants.h"
+#include "../headers/roman_converter.h"
+#include "../headers/constants.h"
 
 #test roman_to_arabic_basic_conversion_test_case_I
   ck_assert_int_eq(roman_to_arabic("I", 1), 1);

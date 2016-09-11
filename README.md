@@ -1,11 +1,11 @@
 # romanNumeralAdder
 To build and run all:
-make && ./roman_converter && ./roman
+make && target/roman_converter && target/roman
 
 To build and run only conversion tests:
-make roman_converter && ./roman_converter
+make target/roman_converter && target/roman_converter
 
 To build and run only addition/subtraction tests:
-make roman && ./roman
+make target/roman && target/roman
 
 To clean: make clean

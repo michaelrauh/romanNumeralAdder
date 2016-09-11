@@ -1,5 +1,5 @@
-#include "roman_converter.h"
-#include "constants.h"
+#include "../headers/roman_converter.h"
+#include "../headers/constants.h"
 #include "string.h"
 
 int roman_char_to_arabic(const char x){

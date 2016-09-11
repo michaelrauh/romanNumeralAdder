@@ -1,5 +1,5 @@
-#include "roman_converter.h"
-#include "constants.h"
+#include "../headers/roman_converter.h"
+#include "../headers/constants.h"
 #include "string.h"
 
 void handle_roman(const char* x, int x_len, const char* y, int y_len, char* result, const int sign_multiplier){

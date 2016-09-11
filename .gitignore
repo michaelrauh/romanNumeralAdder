@@ -1,5 +1,1 @@
-roman_test.c
-roman_converter_test.c
-roman
-roman_converter
-*.o
+target
