@@ -21,10 +21,10 @@ void handle_roman(const char* x, int x_len, const char* y, int y_len, char* resu
 	}
 }
 
-void add_roman(const char* x, int x_len, const char* y, int y_len, char* result){
+void add_roman(const char* x, const int x_len, const char* y, const int y_len, char* result){
 	handle_roman(x, x_len, y, y_len, result, 1);
 }
 
-void subtract_roman(const char* x, int x_len, const char* y, int y_len, char* result){
+void subtract_roman(const char* x, const int x_len, const char* y, const int y_len, char* result){
 	handle_roman(x, x_len, y, y_len, result, 0);
 }
