@@ -111,7 +111,7 @@ int roman_to_arabic(const char* x) {
 	return total;
 }
 
-void arabic_to_max_roman_pattern(const int x, char* result){
+int arabic_to_max_roman_pattern(const int x, char* result){
 	const int arabics[] = {ARABIC_ONE_THOUSAND, ARABIC_NINE_HUNDRED, ARABIC_FIVE_HUNDRED, ARABIC_FOUR_HUNDRED, ARABIC_ONE_HUNDRED, ARABIC_NINETY, ARABIC_FIFTY, ARABIC_FORTY, ARABIC_TEN, ARABIC_NINE, ARABIC_FIVE, ARABIC_FOUR, ARABIC_ONE};
 	const char* numerals[] = {ROMAN_STRING_M, ROMAN_STRING_CM, ROMAN_STRING_D, ROMAN_STRING_CD, ROMAN_STRING_C, ROMAN_STRING_XC, ROMAN_STRING_L, ROMAN_STRING_XL, ROMAN_STRING_X, ROMAN_STRING_IX, ROMAN_STRING_V, ROMAN_STRING_IV, ROMAN_STRING_I};
 	int i;
@@ -119,7 +119,7 @@ void arabic_to_max_roman_pattern(const int x, char* result){
 		if (arabics[i] <= x){
 			memset(result, 0, MAX_SIZE);
 			strcpy(result, numerals[i]);
-			break;
+			return arabics[i];
 		}
 	}
 }
@@ -132,8 +132,7 @@ void arabic_to_roman(int x, char* result){
 	else{
 		while(x > 0){
 			char current [PATTERN_SIZE];
-			arabic_to_max_roman_pattern(x, current);
-			int value = roman_to_arabic(current);
+			int value = arabic_to_max_roman_pattern(x, current);
 			strcat(result, current);
 			x -= value;
 		}
